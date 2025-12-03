@@ -194,7 +194,7 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
         { text: "Target Planning/Submission",
           subItems: [
             { text: "Planning Tool", url: urls.PLANNING_TOOL, newtab: true },
-            { text: "Target List Management", url: urls.TARGET_LIST_MANAGEMENT, newtab: false},
+            { text: "Starlist List Management/Upload", url: urls.TARGET_LIST_MANAGEMENT, newtab: true},
             { text: "Starlist Formatting", url: urls.NON_AO_STARLIST, newtab: false},
             { text: "AO Starlist Formatting", url: urls.AO_STARLIST, newtab: false },
           ]
@@ -215,7 +215,6 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
         { text: "Staff Astronomers", url: urls.STAFF_ASTRONOMERS, newtab: false },
         { text: "Instrument Status (SIAS)", url: urls.SIAS, newtab: false },
         { text: "KPF-CC Dashboard", url: urls.KPF_CC_DASHBOARD, newtab: true},
-        { text: "Keola (to add)"},
         ]
     },
     { text: "Post-Observing Support", icon: <AssignmentIcon />,

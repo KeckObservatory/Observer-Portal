@@ -37,10 +37,11 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const fastLinks = [
-  { text: "Trigger a Target of Opportunity", url: urls.ToO_REQUEST_TOOL, newtab: true },
-  //{ text: "Instrument Avalibility and Announcements", url: urls.SEMESTER_INFO, newtab: false },
-  { text: "KPF-CC Observing Block Submission", url: urls.KPF_CC_OBS_BLOCK_SUBMISSION, newtab: true },
   { text: "Planning Tool (NEW!)", url: urls.PLANNING_TOOL, newtab: true },
+  { text: "Trigger a Target of Opportunity", url: urls.ToO_REQUEST_TOOL, newtab: true },
+  { text: "Upload your Starlist", url: urls.TARGET_LIST_MANAGEMENT, newtab: true},
+  { text: "KPF-CC Observing Block Submission", url: urls.KPF_CC_OBS_BLOCK_SUBMISSION, newtab: true },
+  { text: "Observers\' Data Access Portal (ODAP)", url: urls.ODAP, newtab: true},
   { text: "Keck Observatory Archive", url: urls.KOA, newtab: true },
 ];
 
