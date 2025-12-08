@@ -332,7 +332,7 @@ export function useCombinedSchedule(obsid: number) {
         const combined = await Promise.all(staffPromises);
         setData(combined);
       } catch (err: any) {
-        console.error("Error fetching combined schedule:", err);
+        //console.error("Error fetching combined schedule:", err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -460,7 +460,7 @@ export async function getEmployeeLinks(obsid: number): Promise<{ links?: { name:
  */
 export async function getNewestSemester(): Promise<string> {
   try {
-    const res = await fetch(urls.PROPOSALS_DEV_API + `/getNewestSemester`);
+    const res = await fetch(urls.PROPOSALS_API + `/getNewestSemester`);
     const json = await res.json(); // { semester: "2025B" }
     //console.log(json, 'newest semester api response')
     return json.semester;
@@ -487,8 +487,9 @@ export interface myRequestsApiResponse {
 
 export async function getMyRequests (obsid: number): Promise<myRequestsApiResponse[]> {
     try {
-    const res = await fetch(urls.OBSERVING_DEV_API + `/getObsRequests?obsid=${obsid}`);
+    const res = await fetch(urls.OBSERVING_API + `/getObsRequests?obsid=${obsid}`);
     const json = await res.json(); 
+    //console.log(json, 'my requests api response')
     return json.requests;
   } catch {
     return [];
@@ -499,7 +500,7 @@ export async function getMyRequests (obsid: number): Promise<myRequestsApiRespon
 export async function getMyPhoto(obsid: number): Promise<string | null> {
   try {
     const res = await fetch(
-      urls.OBSERVING_DEV_API + `/getObserverPhoto?obsid=${obsid}`
+      urls.OBSERVING_API + `/getObserverPhoto?obsid=${obsid}`
     );
 
     const json = await res.json();
@@ -549,7 +550,7 @@ export function useCoverSheetsApi(obsid: number, semester: string, currentSemest
           const allCoversheetsPromises = semesters.map(async (sem) => {
             try {
               const response = await fetch(
-                `${urls.PROPOSALS_DEV_API}/getAllProposals?obsid=${obsid}&type=coversheet`
+                `${urls.PROPOSALS_API}/getAllProposals?obsid=${obsid}&type=coversheet`
               );
               const json = await response.json();
               
@@ -598,7 +599,7 @@ export function useCoverSheetsApi(obsid: number, semester: string, currentSemest
         } else {
           // Fetch for specific semester
           const response = await fetch(
-            `${urls.PROPOSALS_DEV_API}/getAllProposals?obsid=${obsid}&type=coversheet`
+            `${urls.PROPOSALS_API}/getAllProposals?obsid=${obsid}&type=coversheet`
           );
           const json = await response.json();
           

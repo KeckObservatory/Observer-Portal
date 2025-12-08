@@ -92,7 +92,7 @@ export default function TopBar({
     if (user?.Id) {
       getMyPhoto(user.Id)
         .then((photoUrl) => setObsPhoto(photoUrl))
-        .catch((err) => console.error("Error fetching photo:", err));
+        //.catch((err) => console.error("Error fetching photo:", err));
     }
   }, [user?.Id]);
 
