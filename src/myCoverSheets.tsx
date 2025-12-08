@@ -1,8 +1,8 @@
-import { Paper, Typography, Stack, Box, Table, TableBody, TableCell, TableContainer, TableRow, TableHead, List, ListItem, Link, FormControl, Select, MenuItem, InputLabel } from "@mui/material";
+import { Paper, Typography, Stack, Box, Table, TableBody, TableCell, TableContainer, TableRow, TableHead, List, ListItem, Link, FormControl, Select, MenuItem, InputLabel, CircularProgress } from "@mui/material";
 import urls from './urls.json';
 import type { userInfoApiResponse } from './api';
 import { useEffect, useState } from "react";
-import { getCurrentSemester, getLastSemesters, getNewestSemester } from "./api";
+import { getCurrentSemester, getLastSemesters, getNewestSemester, useCoverSheetsApi } from "./api";
 import { Main } from './theme';
 import { getEmployeeLinks } from "./api"; // Make sure this is imported
 import { handleUrlClick } from './urlLogic';
@@ -14,49 +14,30 @@ interface MyCoverSheetsProps  {
   setSelectedUrl?: (url: string | null) => void; 
 }
 
-type Program = {
-  name: string;
-  semid: string;
-  title?: string;
-  type?: string;
-}
-
 /**
  * MyCoverSheets displays links to the user's coversheets ,
  * allows filtering by semester, and provides helpful links.
  */
 export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: MyCoverSheetsProps) {
   const obsid = user?.Id;
-  //const obsid = 1521; // for testing
-  //const obsid = 4718
-
-
-
-  const [data, setData] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // Semester dropdown state
   const currentSemester = getCurrentSemester();
-  const [selectedSemester, setSelectedSemester] = useState<string>("");
-  const [semesterOptions, setSemesterOptions] = useState<string[]>([]);
+  const availableSemesters = ["All Coversheets", currentSemester, ...getLastSemesters(currentSemester, 15)];
 
+  // Semester selection state
+  const [selectedSemester, setSelectedSemester] = useState(currentSemester);
+  
   // Add state for newest semester
   const [newestSemester, setNewestSemester] = useState<string>("");
-
 
   // Check if user is a Keck employee
   const [isKeckEmployee, setIsKeckEmployee] = useState(false);
 
+  // Set initial semester when currentSemester loads
   useEffect(() => {
-    async function checkEmployee() {
-      if (user?.Id) {
-        const result = await getEmployeeLinks(user.Id);
-        setIsKeckEmployee(Array.isArray(result?.links) && result.links.length > 0);
-      }
+    if (currentSemester) {
+      setSelectedSemester(currentSemester);
     }
-    checkEmployee();
-  }, [user?.Id]);
+  }, [currentSemester]);
 
   // Fetch newest semester on mount
   useEffect(() => {
@@ -67,71 +48,20 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
     fetchNewest();
   }, []);
 
-  // Update semester options when currentSemester or newestSemester changes
+  // Check employee status
   useEffect(() => {
-    if (currentSemester) {
-      let semesters = [currentSemester, ...getLastSemesters(currentSemester, 15)];
-      // If newestSemester is not already in the list, add it to the front
-      if (newestSemester && !semesters.includes(newestSemester)) {
-        semesters = [newestSemester, ...semesters];
-      }
-      setSemesterOptions(semesters);
-      setSelectedSemester(currentSemester);
-    }
-  }, [currentSemester, newestSemester]);
-
-  // Fetch cover sheets when obsid or selectedSemester changes
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setLoading(true);
-        setError(null);
-
-        if (!obsid) {
-          setError("No observer ID found");
-          setLoading(false);
-          return;
-        }
-
-        // get all programs for obsid
-        const response = await fetch(`${urls.PROPOSALS_DEV_API}/getAllProposals?obsid=${obsid}&type=coversheet`);
-        if (!response.ok) throw new Error(`${response.status}`);
-        const data = await response.json();
-        //console.log("Programs data:", data);
-        // Filter programs by selected semester
-        const programs = (data.programs || []).filter((p: Program) =>
-          p.semid && p.semid.includes(selectedSemester)
-        );
-
-        // for each program get title/type
-        const enrichedPrograms = await Promise.all(
-          programs.map(async (program: Program) => {
-            try {
-              const coverResponse = await fetch(`${urls.PROPOSALS_API}/getCoverSheetInfo?semid=${program.semid}`);
-              const coverData = await coverResponse.json();
-              if (coverData.success === "SUCCESS" && coverData.result) {
-                return {
-                  ...program,
-                  title: coverData.result.title,
-                  type: coverData.result.type
-                };
-              }
-            } catch (err) {
-              //console.warn(`Failed to fetch cover info for ${program.semid}`, err);
-            }
-            return program; // fallback
-          })
-        );
-
-        setData({ ...data, programs: enrichedPrograms });
-      } catch (err) {
-        setError((err as Error).message);
-      } finally {
-        setLoading(false);
+    async function checkEmployee() {
+      if (user?.Id) {
+        const result = await getEmployeeLinks(user.Id);
+        setIsKeckEmployee(Array.isArray(result?.links) && result.links.length > 0);
       }
     }
-    if (selectedSemester) fetchData();
-  }, [obsid, selectedSemester]);
+    checkEmployee();
+  }, [user?.Id]);
+
+  // Use the new API hook (similar to logs)
+  const { data, loading } = useCoverSheetsApi(obsid, selectedSemester, currentSemester);
+  const programs = data?.programs ?? [];
 
   return (
     <Main open={open}>
@@ -142,32 +72,34 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
             <Typography variant="h6">My Cover Sheets</Typography>
           </Box>
 
-          {/* Semester Dropdown */}
-          <Box sx={{ p: 2, pt: 0 }}>
-            <FormControl size="small" sx={{ minWidth: 180 }}>
-              <InputLabel id="semester-select-label">Semester</InputLabel>
-              <Select
-                labelId="semester-select-label"
-                value={selectedSemester}
-                label="Semester"
-                onChange={e => setSelectedSemester(e.target.value)}
-              >
-                {semesterOptions.map((sem) => (
-                  <MenuItem key={sem} value={sem}>{sem}</MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
+          {/* Semester Dropdown - matches logs style */}
+          <FormControl sx={{ minWidth: 120, m: 2 }}>
+            <InputLabel>Semester</InputLabel>
+            <Select
+              value={selectedSemester}
+              label="Semester"
+              onChange={(e) => setSelectedSemester(e.target.value)}
+            >
+              {availableSemesters.map((sem) => (
+                <MenuItem key={sem} value={sem}>
+                  {sem}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
-          {/* Table of coversheets */}
-          <Box sx={{ mt: 2 }}>
-            {loading ? (
-              <Typography>Loading...</Typography>
-            ) : error ? (
-              <Typography color="error">{error}</Typography>
-            ) : (data?.programs?.length === 0) ? (
-              <Typography>No coversheets for this semester.</Typography>
-            ) : (
+          {/* Loading spinner - matches logs style */}
+          {loading ? (
+            <Stack alignItems="center" sx={{ p: 3 }}>
+              <CircularProgress size={32} />
+              <Typography sx={{ mt: 1 }}>Loading coversheets...</Typography>
+            </Stack>
+          ) : programs.length === 0 ? (
+            <Typography sx={{ p: 2, color: "text.secondary" }}>
+              No coversheets found for this semester.
+            </Typography>
+          ) : (
+            <Box sx={{ mt: 2 }}>
               <TableContainer component={Paper} sx={{ maxHeight: 331 }}>
                 <Table size="small" stickyHeader sx={{ tableLayout: "fixed", width: "100%" }}>
                   <TableHead>
@@ -181,17 +113,16 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {(data?.programs as Program[]).map((program: Program, idx: number) => {
-                      // Check if this row should show Edit
-                      const isNewest = selectedSemester === newestSemester;
-                      const isCurrentOrNewest = [currentSemester, newestSemester].includes(selectedSemester);
-                      const hasE = program.semid.startsWith(`${selectedSemester}_E`);
+                    {programs.map((program, idx) => {
+                      // Extract semester from semid for edit logic
+                      const programSemester = program.semid?.split('_')[0] || '';
+                      
+                      // Edit logic
+                      const isNewest = programSemester === newestSemester;
+                      const isCurrentOrNewest = [currentSemester, newestSemester].includes(programSemester);
+                      const hasE = program.semid?.startsWith(`${programSemester}_E`);
 
-                      const showEdit =
-                        isNewest ||
-                        (isCurrentOrNewest && hasE);
-
-                      //console.log({selectedSemester, currentSemester, newestSemester, semid: program.semid, hasE, showEdit});
+                      const showEdit = isNewest || (isCurrentOrNewest && hasE);
 
                       return (
                         <TableRow key={idx}>
@@ -239,13 +170,10 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                   </TableBody>
                 </Table>
               </TableContainer>
-            )}
-          </Box>
+            </Box>
+          )}
 
-          {/* //  //{ text: "Instrument Avalibility and Announcements", url: urls.SEMESTER_INFO, newtab: false }, */}
-
-
-          {/* Helpful Links Section */}
+          {/* Helpful Links Section - unchanged */}
           <Box sx={{ p: 2, borderTop: 2, borderColor: "divider" }}>
             <Typography variant="h6">Helpful Links:</Typography>
             <List dense>
@@ -266,7 +194,7 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                   Coversheet Submission
                 </Link>
               </ListItem>
-                            <ListItem>
+              <ListItem>
                 <Link
                   component="button"
                   variant="h6"
@@ -300,7 +228,6 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                   KPF-CC Observing Block Submission
                 </Link>
               </ListItem>
-              {/* Only show for Keck employees */}
               {isKeckEmployee && currentSemester && (
                 <ListItem>
                   <Link
