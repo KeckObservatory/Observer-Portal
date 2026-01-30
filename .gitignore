@@ -23,8 +23,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-/src/urls.json
-src/urls.json
-
 notes.txt
