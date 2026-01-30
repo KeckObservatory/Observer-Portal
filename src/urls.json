@@ -1,5 +1,4 @@
 {
-  "PILOGIN_DEV": "https://www.keck.hawaii.edu/sandbox/lfuhrman/PILogin/",
   "PILOGIN": "https://www2.keck.hawaii.edu/inst/PILogin/",
   "REMOTE_OBS_SRC": "mainlandObs.php",
   "TOO_REQUEST_SRC": "too/TooListPage.php",
@@ -21,7 +20,7 @@
   "MKWC_SRC": "http://mkwc.ifa.hawaii.edu/",
   "VSQ_SRC": "https://www2.keck.hawaii.edu/inst/common/VSQ.html",
   "APPLY_SRC": "https://www2.keck.hawaii.edu/observing/apply.html",
-  "LOCAL_HOST": "https://www3.keck.hawaii.edu",
+  "LOCAL_HOST": "/",
   "TELSCHED_API": "/api/telSchedule?",
   "PROPOSAL_API": "/api/proposalsApi?",
   "KOARTI_API":  "/api/koarti?",
@@ -33,8 +32,8 @@
   "USERINFOCOOKIES" : "/userinfo/user-cookies",
 
   
-  "SLITMASK_TOOL" : "https://www3.keck.hawaii.edu/observers/Slitmask/rel/index.html#",
-  "KPUB": "https://www3.keck.hawaii.edu/public/kpub/rel/index.html",
+  "SLITMASK_TOOL" : "/observers/Slitmask/rel/index.html#",
+  "KPUB": "/public/kpub/rel/index.html",
 
 
   "UPDATE_MY_PROFILE" : "https://www2.keck.hawaii.edu/inst/PILogin/updateInfo.php",
@@ -47,16 +46,16 @@
 
   "OBSERVING_INFORMATION" : "https://www2.keck.hawaii.edu/observing/index.php",
   "COVER_SHEET_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?",
-  "KPF_CC_OBS_BLOCK_SUBMISSION" : "https://www3.keck.hawaii.edu/observers/kpf-cc/rel/index.html",
+  "KPF_CC_OBS_BLOCK_SUBMISSION" : "/observers/kpf-cc/rel/index.html",
 
   "CONFIGURATION_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/siastng/release/web/ObsConf/welcomeScreenEh.php",
-  "SLITMASK_SUBMISSION" : "https://www3.keck.hawaii.edu/observers/Slitmask/rel/index.html",
+  "SLITMASK_SUBMISSION" : "/observers/Slitmask/rel/index.html",
 
   "ToO_POLICIES" : "https://www2.keck.hawaii.edu/inst/common/too_policies.html",
   "ToO_REQUEST_TOOL" : "https://www2.keck.hawaii.edu/inst/PILogin/too/TooListPage.php",
 
   "TARGET_LIST_MANAGEMENT" : "https://www2.keck.hawaii.edu/software/findChartV2/listMgmt.php",
-  "PLANNING_TOOL" : "https://www3.keck.hawaii.edu/observers/planning-tool/rel/index.html",
+  "PLANNING_TOOL" : "/observers/planning-tool/rel/index.html",
 
   "OBSERVING_REQUEST" : "https://www2.keck.hawaii.edu/inst/PILogin/mainlandObs.php",
   "VSQ_RESERVATIONS" : "https://www2.keck.hawaii.edu/inst/common/VSQ.html",
@@ -66,7 +65,7 @@
   "INSTRUMENTS_HOME" : "https://www2.keck.hawaii.edu/inst",
   "STAFF_ASTRONOMERS" : "https://www2.keck.hawaii.edu/inst/common/InstrumentScientists.php",
   "SIAS" : "https://www2.keck.hawaii.edu/realpublic/inst/siastng/release/web/Sias/siasEh.php?host=mysqlserver&table=datebook&display=compact",
-  "KPF_CC_DASHBOARD" : "https://www3.keck.hawaii.edu/kpfccapp",
+  "KPF_CC_DASHBOARD" : "/kpfccapp",
 
   "POST_OBS_COMMENTS" : "https://www2.keck.hawaii.edu/inst/PILogin/pocSubmit.php",
   "DRPS" : "https://www2.keck.hawaii.edu/inst/drp.html",
@@ -76,9 +75,6 @@
   "ODAP" : "https://koa.ipac.caltech.edu/rti-gui/login",
   "GRANT_DATA_ACCESS" : "https://koa.ipac.caltech.edu/applications/KOA/grant.html",
 
-  "DEV_OBSLOGLIST" : "https://www.keck.hawaii.edu/software/db_api/proposalsAPI.php?cmd=getObsLogTitle&obsid=3971",
-  "DEV_GETOBSLOG" : "https://vm-appserver.keck.hawaii.edu/api/getObsLog?log=",
-
   "PUB_ACK" : "https://www2.keck.hawaii.edu/observing/keck_authors.html",
 
 
@@ -86,7 +82,7 @@
   "AO_STARLIST" :  "https://www2.keck.hawaii.edu/inst/ao/starlist.html",
   "PLAN_LGS_OBS" : "https://www2.keck.hawaii.edu/optics/lgsao/instructions.html",
 
-  "CLOUD_CAMS" : "https://www3.keck.hawaii.edu/skycams/CloudCamStatic.html",
+  "CLOUD_CAMS" : "/skycams/CloudCamStatic.html",
 
   "SERVE_COVER_SHEET" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?print=print&",
   "EDIT_COVER_SHEET" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?",
@@ -97,14 +93,10 @@
   "REQUEST_EDIT" : "https://www2.keck.hawaii.edu/inst/PILogin/mainlandObs.php?",
 
   "PROPOSALS_API" : "https://vm-appserver.keck.hawaii.edu/api/proposals",
-  "PROPOSALS_DEV_API" : "https://www3build.keck.hawaii.edu/api/proposals",
   "SCHEDULE_API" : "https://vm-appserver.keck.hawaii.edu/api/schedule",
-  "SCHEDULE_DEV_API" : "https://www3build.keck.hawaii.edu/api/schedule",
   "EMPLOYEE_API" : "https://vm-appserver.keck.hawaii.edu/api/employee",
   "METRICS_API" : "https://vm-appserver.keck.hawaii.edu/api/metrics/?",
   "USER_INFO_API" : "https://vm-appserver.keck.hawaii.edu/userinfo/user-cookies",
 
-  "REQUESTS_DEV" : "http://vm-dev-appserver:45691/observing/getObsRequests?",
-  "OBSERVING_DEV_API" : "https://www3build.keck.hawaii.edu/api/observing",
   "OBSERVING_API" : "https://vm-appserver.keck.hawaii.edu/api/observing"
 }
