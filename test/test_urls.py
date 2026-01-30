@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 
-def load_urls(json_file: str = "urls.json") -> Dict[str, str]:
+def load_urls(json_file: str = "../src/urls.json") -> Dict[str, str]:
     """Load URLs from JSON file."""
     json_path = Path(__file__).parent / json_file
     with open(json_path, 'r') as f:
