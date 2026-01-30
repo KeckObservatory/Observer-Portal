@@ -92,11 +92,11 @@
   "SEMESTER_INFO" : "https://www2.keck.hawaii.edu/observing/instavail.html",
   "REQUEST_EDIT" : "https://www2.keck.hawaii.edu/inst/PILogin/mainlandObs.php?",
 
-  "PROPOSALS_API" : "https://vm-appserver.keck.hawaii.edu/api/proposals",
-  "SCHEDULE_API" : "https://vm-appserver.keck.hawaii.edu/api/schedule",
-  "EMPLOYEE_API" : "https://vm-appserver.keck.hawaii.edu/api/employee",
-  "METRICS_API" : "https://vm-appserver.keck.hawaii.edu/api/metrics/?",
-  "USER_INFO_API" : "https://vm-appserver.keck.hawaii.edu/userinfo/user-cookies",
+  "PROPOSALS_API" : "/api/proposals",
+  "SCHEDULE_API" : "/api/schedule",
+  "EMPLOYEE_API" : "/api/employee",
+  "METRICS_API" : "/api/metrics/?",
+  "USER_INFO_API" : "/userinfo/user-cookies",
 
-  "OBSERVING_API" : "https://vm-appserver.keck.hawaii.edu/api/observing"
+  "OBSERVING_API" : "/api/observing"
 }
