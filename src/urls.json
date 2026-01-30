@@ -1,0 +1,102 @@
+{
+  "PILOGIN": "https://www2.keck.hawaii.edu/inst/PILogin/",
+  "REMOTE_OBS_SRC": "mainlandObs.php",
+  "TOO_REQUEST_SRC": "too/TooListPage.php",
+  "TOO_REPORT_SRC": "ToOreport.php",
+  "VACCINE_SRC": "vaccineFileMgr.php",
+  "OBSLOG": "observerLogs.php",
+  "COVSHEET": "coversheet.php?",
+  "POC_SRC": "pocSubmit.php",
+  "UPDATE_INFO_SRC": "updateInfo.php",
+  "SSH_SRC": "sshKeyMgr.php",
+  "TARGET_LIST_SRC": "https://www2.keck.hawaii.edu/software/findChartV2/listMgmt.php",
+  "LRIS_CONFIG_SRC": "https://www2.keck.hawaii.edu/inst/siastng/release/web/ObsConf/welcomeScreenEh.php",
+  "DEIMOS_CONFIG_SRC": "https://www2.keck.hawaii.edu/inst/siastng/release/web/ObsConf/welcomeScreenEh.php",
+  "PROPOSAL_APPLY_SRC": "https://www2.keck.hawaii.edu/observing/apply.html",
+  "SIAS_SRC": "https://www2.keck.hawaii.edu/realpublic/inst/siastng/release/web/Sias/siasEh.php?host=mysqlserver&table=datebook&display=compact",
+  "KOA_SRC": "https://koa.ipac.caltech.edu/cgi-bin/KOA/nph-KOAlogin",
+  "TELSCHED_SRC": "https://www2.keck.hawaii.edu/observing/keckSchedule/keckSchedule.php",
+  "INST_SRC": "https://www2.keck.hawaii.edu/inst/index.php",
+  "MKWC_SRC": "http://mkwc.ifa.hawaii.edu/",
+  "VSQ_SRC": "https://www2.keck.hawaii.edu/inst/common/VSQ.html",
+  "APPLY_SRC": "https://www2.keck.hawaii.edu/observing/apply.html",
+  "LOCAL_HOST": "/",
+  "TELSCHED_API": "/api/telSchedule?",
+  "PROPOSAL_API": "/api/proposalsApi?",
+  "KOARTI_API":  "/api/koarti?",
+  "METRICS_API_2":  "/api/metrics?",
+  "USERINFO":  "/userinfo/",
+  "ODT": "/observers/papahana/rel/index.html",
+  "LOGOUT": "/logout",
+
+  "USERINFOCOOKIES" : "/userinfo/user-cookies",
+
+  
+  "SLITMASK_TOOL" : "/observers/Slitmask/rel/index.html#",
+  "KPUB": "/public/kpub/rel/index.html",
+
+
+  "UPDATE_MY_PROFILE" : "https://www2.keck.hawaii.edu/inst/PILogin/updateInfo.php",
+  "SSH_KEY_MANAGEMENT" : "https://www2.keck.hawaii.edu/inst/PILogin/sshKeyMgr.php",
+  "MY_COVER_SHEETS" : "",
+
+  "TELESCOPE_SCHEDULE" : "https://www2.keck.hawaii.edu/observing/keckSchedule/keckSchedule.php",
+
+  "MK_WEATHER_CENTER": "http://mkwc.ifa.hawaii.edu/",
+
+  "OBSERVING_INFORMATION" : "https://www2.keck.hawaii.edu/observing/index.php",
+  "COVER_SHEET_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?",
+  "KPF_CC_OBS_BLOCK_SUBMISSION" : "/observers/kpf-cc/rel/index.html",
+
+  "CONFIGURATION_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/siastng/release/web/ObsConf/welcomeScreenEh.php",
+  "SLITMASK_SUBMISSION" : "/observers/Slitmask/rel/index.html",
+
+  "ToO_POLICIES" : "https://www2.keck.hawaii.edu/inst/common/too_policies.html",
+  "ToO_REQUEST_TOOL" : "https://www2.keck.hawaii.edu/inst/PILogin/too/TooListPage.php",
+
+  "TARGET_LIST_MANAGEMENT" : "https://www2.keck.hawaii.edu/software/findChartV2/listMgmt.php",
+  "PLANNING_TOOL" : "/observers/planning-tool/rel/index.html",
+
+  "OBSERVING_REQUEST" : "https://www2.keck.hawaii.edu/inst/PILogin/mainlandObs.php",
+  "VSQ_RESERVATIONS" : "https://www2.keck.hawaii.edu/inst/common/VSQ.html",
+
+  "REMOTE_OBS_SOFTWARE" : "https://github.com/KeckObservatory/RemoteObserving",
+
+  "INSTRUMENTS_HOME" : "https://www2.keck.hawaii.edu/inst",
+  "STAFF_ASTRONOMERS" : "https://www2.keck.hawaii.edu/inst/common/InstrumentScientists.php",
+  "SIAS" : "https://www2.keck.hawaii.edu/realpublic/inst/siastng/release/web/Sias/siasEh.php?host=mysqlserver&table=datebook&display=compact",
+  "KPF_CC_DASHBOARD" : "/kpfccapp",
+
+  "POST_OBS_COMMENTS" : "https://www2.keck.hawaii.edu/inst/PILogin/pocSubmit.php",
+  "DRPS" : "https://www2.keck.hawaii.edu/inst/drp.html",
+
+  "KOA": "https://koa.ipac.caltech.edu/cgi-bin/KOA/nph-KOAlogin",
+  "DDS" : "https://koa.ipac.caltech.edu:8443/apps/KOADiscoveryPage/",
+  "ODAP" : "https://koa.ipac.caltech.edu/rti-gui/login",
+  "GRANT_DATA_ACCESS" : "https://koa.ipac.caltech.edu/applications/KOA/grant.html",
+
+  "PUB_ACK" : "https://www2.keck.hawaii.edu/observing/keck_authors.html",
+
+
+  "NON_AO_STARLIST" : "https://www2.keck.hawaii.edu/observing/starlist.html",
+  "AO_STARLIST" :  "https://www2.keck.hawaii.edu/inst/ao/starlist.html",
+  "PLAN_LGS_OBS" : "https://www2.keck.hawaii.edu/optics/lgsao/instructions.html",
+
+  "CLOUD_CAMS" : "/skycams/CloudCamStatic.html",
+
+  "SERVE_COVER_SHEET" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?print=print&",
+  "EDIT_COVER_SHEET" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?",
+  "COPY_COVER_SHEET" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?copy=copy&",
+  "SUB_ENG_REQ" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?access=edit&semester=",
+
+  "SEMESTER_INFO" : "https://www2.keck.hawaii.edu/observing/instavail.html",
+  "REQUEST_EDIT" : "https://www2.keck.hawaii.edu/inst/PILogin/mainlandObs.php?",
+
+  "PROPOSALS_API" : "https://vm-appserver.keck.hawaii.edu/api/proposals",
+  "SCHEDULE_API" : "https://vm-appserver.keck.hawaii.edu/api/schedule",
+  "EMPLOYEE_API" : "https://vm-appserver.keck.hawaii.edu/api/employee",
+  "METRICS_API" : "https://vm-appserver.keck.hawaii.edu/api/metrics/?",
+  "USER_INFO_API" : "https://vm-appserver.keck.hawaii.edu/userinfo/user-cookies",
+
+  "OBSERVING_API" : "https://vm-appserver.keck.hawaii.edu/api/observing"
+}
