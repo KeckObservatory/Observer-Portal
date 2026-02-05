@@ -250,7 +250,7 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
       subItems: employeeLinks.map(link => ({
         text: link.name,
         url: link.url,
-        newtab: false
+        newtab: true
       }))
     });
   }
