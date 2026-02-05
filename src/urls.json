@@ -53,6 +53,7 @@
 
   "ToO_POLICIES" : "https://www2.keck.hawaii.edu/inst/common/too_policies.html",
   "ToO_REQUEST_TOOL" : "https://www2.keck.hawaii.edu/inst/PILogin/too/TooListPage.php",
+  "ToO_NOTEBOOK" : "/api/too/create_too",
 
   "TARGET_LIST_MANAGEMENT" : "https://www2.keck.hawaii.edu/software/findChartV2/listMgmt.php",
   "PLANNING_TOOL" : "/observers/planning-tool/rel/index.html",
