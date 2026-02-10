@@ -172,6 +172,7 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
       subItems: [
             { text: "ToO Policies", url: urls.ToO_POLICIES, newtab: false },
             { text: "ToO Request Tool", url: urls.ToO_REQUEST_TOOL, newtab: true },
+            { text: "ToO Jupyter Notebook", url: urls.ToO_NOTEBOOK, newtab: true },
           ]
     },
 
@@ -250,7 +251,7 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
       subItems: employeeLinks.map(link => ({
         text: link.name,
         url: link.url,
-        newtab: false
+        newtab: true
       }))
     });
   }

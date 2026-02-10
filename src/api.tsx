@@ -162,7 +162,7 @@ export function scheduleApi() {
             if (stateLabel === "TDA Ready" || stateLabel === "Scheduled") {
               try {
                 const readyRes = await fetch(
-                  `${urls.SCHEDULE_API}/getInstrumentReadyState?instrument=${encodeURIComponent(instrumentName)}`
+                  `${urls.SCHEDULE_API}/getInstrumentReadyState?instrument=${encodeURIComponent(instrumentName)}&date=${hstDate}`
                 );
                 if (readyRes.ok) {
                   const readyJson = await readyRes.json();
