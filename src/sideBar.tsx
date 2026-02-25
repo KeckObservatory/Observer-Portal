@@ -29,6 +29,7 @@ import ChecklistIcon from '@mui/icons-material/Checklist';
 import CreateIcon from '@mui/icons-material/Create';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import StarsIcon from '@mui/icons-material/Stars';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 // urls
 import urls from './urls.json'
@@ -154,6 +155,8 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
    */
     const topMenu: MenuItem[] = [
     { text: 'Home', icon: <HomeIcon /> },
+
+    { text: "Back to Old Site", icon: <ArrowBackIcon />, url: urls.OLD_HOMEPAGE, newtab: true },
 
     { text: "Profile", icon: <AccountBoxIcon />,
       subItems: [
