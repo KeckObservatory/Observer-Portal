@@ -99,5 +99,7 @@
   "METRICS_API" : "/api/metrics/?",
   "USER_INFO_API" : "/userinfo/user-cookies",
 
-  "OBSERVING_API" : "/api/observing"
+  "OBSERVING_API" : "/api/observing",
+
+  "OLD_HOMEPAGE" : "https://www2.keck.hawaii.edu/inst/PILogin/homepage.php"
 }
