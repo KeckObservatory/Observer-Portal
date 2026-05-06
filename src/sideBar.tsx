@@ -156,7 +156,7 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
     const topMenu: MenuItem[] = [
     { text: 'Home', icon: <HomeIcon /> },
 
-    { text: "Back to Previous Homepage", icon: <ArrowBackIcon />, url: urls.OLD_HOMEPAGE, newtab: true },
+    { text: "Previous Observer Homepage", icon: <ArrowBackIcon />, url: urls.OLD_HOMEPAGE, newtab: true },
 
     { text: "Profile", icon: <AccountBoxIcon />,
       subItems: [
