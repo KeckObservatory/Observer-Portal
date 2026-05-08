@@ -134,7 +134,7 @@ export function MyObsSchedule({ open, user, setSelectedPage, setSelectedUrl }: M
                                 variant="body2"
                                 onClick={() =>
                                   handleUrlClick(
-                                    { text: "Observing Information", url: urls.OBSERVING_REQUEST },
+                                    { text: "Observing Information", url: urls.OBSERVING_REQUEST, newtab: true },
                                     setSelectedPage,
                                     setSelectedUrl
                                   )
