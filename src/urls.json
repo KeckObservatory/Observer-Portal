@@ -45,7 +45,7 @@
   "MK_WEATHER_CENTER": "http://mkwc.ifa.hawaii.edu/",
 
   "OBSERVING_INFORMATION" : "https://www2.keck.hawaii.edu/observing/index.php",
-  "COVER_SHEET_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?",
+  "COVER_SHEET_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?access=new",
   "KPF_CC_OBS_BLOCK_SUBMISSION" : "/observers/kpf-cc/rel/index.html",
 
   "CONFIGURATION_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/siastng/release/web/ObsConf/welcomeScreenEh.php",
