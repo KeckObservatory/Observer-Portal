@@ -185,7 +185,7 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                   sx={{ cursor: "pointer", fontSize: "1.15rem", fontWeight: 600 }}
                   onClick={() =>
                     handleUrlClick(
-                      { text: "Coversheet Submission", url: urls.COVER_SHEET_SUBMISSION, newtab: false },
+                      { text: "Coversheet Submission", url: urls.COVER_SHEET_SUBMISSION, newtab: true },
                       setSelectedPage,
                       setSelectedUrl
                     )
@@ -202,7 +202,7 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                   sx={{ cursor: "pointer", fontSize: "1.15rem", fontWeight: 600 }}
                   onClick={() =>
                     handleUrlClick(
-                      { text: "Instrument Avalibility and Announcements", url: urls.SEMESTER_INFO, newtab: false },
+                      { text: "Instrument Avalibility and Announcements", url: urls.SEMESTER_INFO, newtab: true },
                       setSelectedPage,
                       setSelectedUrl
                     )
@@ -237,7 +237,7 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                     sx={{ cursor: "pointer", fontSize: "1.15rem", fontWeight: 600 }}
                     onClick={() =>
                       handleUrlClick(
-                        { text: "Submit Engineering Request", url: urls.SUB_ENG_REQ + currentSemester, newtab: false },
+                        { text: "Submit Engineering Request", url: urls.SUB_ENG_REQ + currentSemester, newtab: true },
                         setSelectedPage,
                         setSelectedUrl
                       )

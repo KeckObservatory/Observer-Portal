@@ -11,12 +11,13 @@ import type { userInfoApiResponse } from './api';
 import { CircularProgress } from "@mui/material";
 import { useCombinedSchedule } from "./api";
 import { Main } from './theme';
+import { handleUrlClick } from './urlLogic';
 
 interface MyScheduleProps  {
   open: boolean;
   user: userInfoApiResponse;
   setSelectedPage: (page: string) => void;
-  setSelectedUrl: (url: string) => void;
+  setSelectedUrl: (url: string | null) => void;
 };
 
 /**
@@ -131,10 +132,13 @@ export function MyObsSchedule({ open, user, setSelectedPage, setSelectedUrl }: M
                               <Link
                                 component="button"
                                 variant="body2"
-                                onClick={() => {
-                                  setSelectedPage("Observing Information");
-                                  setSelectedUrl(urls.OBSERVING_REQUEST);
-                                }}
+                                onClick={() =>
+                                  handleUrlClick(
+                                    { text: "Observing Information", url: urls.OBSERVING_REQUEST },
+                                    setSelectedPage,
+                                    setSelectedUrl
+                                  )
+                                }
                               >
                                 See Observing Request
                               </Link>
@@ -194,10 +198,13 @@ export function MyObsSchedule({ open, user, setSelectedPage, setSelectedUrl }: M
                     component="button"
                     variant="subtitle1"
                     underline="hover"
-                    onClick={() => {
-                      setSelectedPage(`Instrument: ${inst}`);
-                      setSelectedUrl(`${urls.INSTRUMENTS_HOME}/${inst.toLowerCase()}`);
-                    }}
+                    onClick={() =>
+                      handleUrlClick(
+                        { text: `Instrument: ${inst}`, url: `${urls.INSTRUMENTS_HOME}/${inst.toLowerCase()}`, newtab: true },
+                        setSelectedPage,
+                        setSelectedUrl
+                      )
+                    }
                     sx={{ cursor: "pointer" }}
                   >
                     {`Learn more about ${inst}`}
@@ -210,10 +217,13 @@ export function MyObsSchedule({ open, user, setSelectedPage, setSelectedUrl }: M
                   component="button"
                   variant="subtitle1"
                   underline="hover"
-                  onClick={() => {
-                    setSelectedPage("Observing Information");
-                    setSelectedUrl(urls.OBSERVING_REQUEST);
-                  }}
+                  onClick={() =>
+                    handleUrlClick(
+                      { text: "Observing Information", url: urls.OBSERVING_REQUEST, newtab: true },
+                      setSelectedPage,
+                      setSelectedUrl
+                    )
+                  }
                   sx={{ cursor: "pointer" }}
                 >
                   Create an observing request
