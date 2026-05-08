@@ -160,8 +160,8 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
 
     { text: "Profile", icon: <AccountBoxIcon />,
       subItems: [
-        { text: "Update My Profile", url: urls.UPDATE_MY_PROFILE, newtab: false },
-        { text: "SSH Key Management", url: urls.SSH_KEY_MANAGEMENT, newtab: false },
+        { text: "Update My Profile", url: urls.UPDATE_MY_PROFILE, newtab: true },
+        { text: "SSH Key Management", url: urls.SSH_KEY_MANAGEMENT, newtab: true },
         { text: "My Observing Schedule"},
         { text: "My Observing Logs"},
         { text: "My Observing Requests"},
@@ -169,11 +169,11 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
       ]
     },
 
-    { text: "Telescope Schedule", icon: <CalendarMonthIcon />, url: urls.TELESCOPE_SCHEDULE, newtab: false },
+    { text: "Telescope Schedule", icon: <CalendarMonthIcon />, url: urls.TELESCOPE_SCHEDULE, newtab: true },
 
     { text: "ToO Resources", icon: <StarsIcon />,
       subItems: [
-            { text: "ToO Policies", url: urls.ToO_POLICIES, newtab: false },
+            { text: "ToO Policies", url: urls.ToO_POLICIES, newtab: true },
             { text: "ToO Request Tool", url: urls.ToO_REQUEST_TOOL, newtab: true },
             { text: "ToO Jupyter Notebook", url: urls.ToO_NOTEBOOK, newtab: true },
           ]
@@ -181,17 +181,17 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
 
     { text: "Pre-Observing Support", icon: <ChecklistIcon />,
       subItems: [
-        { text: "Instrument Home", url: urls.INSTRUMENTS_HOME, newtab: false},
+        { text: "Instrument Home", url: urls.INSTRUMENTS_HOME, newtab: true},
         { text: "Applying for Keck Time", 
           subItems: [
-            { text: "Observing Information", url: urls.OBSERVING_INFORMATION, newtab: false},
-            { text: "Coversheet Submission", url: urls.COVER_SHEET_SUBMISSION, newtab: false},
+            { text: "Observing Information", url: urls.OBSERVING_INFORMATION, newtab: true},
+            { text: "Coversheet Submission", url: urls.COVER_SHEET_SUBMISSION, newtab: true},
             { text: "KPF-CC Observing Block Submission", url : urls.KPF_CC_OBS_BLOCK_SUBMISSION, newtab: true},
           ]
         },
         { text: "DEIMOS/LRIS Support", 
           subItems: [
-            { text: "Configuration Submission", url: urls.CONFIGURATION_SUBMISSION, newtab: false},
+            { text: "Configuration Submission", url: urls.CONFIGURATION_SUBMISSION, newtab: true},
             { text: "Slitmask Submission", url: urls.SLITMASK_SUBMISSION , newtab: true },
           ]
         },
@@ -199,15 +199,15 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
           subItems: [
             { text: "Planning Tool", url: urls.PLANNING_TOOL, newtab: true },
             { text: "Starlist List Management/Upload", url: urls.TARGET_LIST_MANAGEMENT, newtab: true},
-            { text: "Starlist Formatting", url: urls.NON_AO_STARLIST, newtab: false},
-            { text: "AO Starlist Formatting", url: urls.AO_STARLIST, newtab: false },
+            { text: "Starlist Formatting", url: urls.NON_AO_STARLIST, newtab: true},
+            { text: "AO Starlist Formatting", url: urls.AO_STARLIST, newtab: true },
           ]
         },
         
         { text: "HQ and Remote Observing",
           subItems: [
-            { text: "Observing Request", url: urls.OBSERVING_REQUEST, newtab: false},
-            { text: "VSQ Reservations", url: urls.VSQ_RESERVATIONS, newtab: false },
+            { text: "Observing Request", url: urls.OBSERVING_REQUEST, newtab: true},
+            { text: "VSQ Reservations", url: urls.VSQ_RESERVATIONS, newtab: true },
           ]
         },
         { text: "Remote Observing Software", url: urls.REMOTE_OBS_SOFTWARE, newtab: true},
@@ -215,16 +215,16 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
     },
     { text: "Observing Support", icon: <FolderSpecialIcon />,
       subItems: [
-        { text: "Instruments Home", url: urls.INSTRUMENTS_HOME, newtab: false},
-        { text: "Staff Astronomers", url: urls.STAFF_ASTRONOMERS, newtab: false },
-        { text: "Instrument Status (SIAS)", url: urls.SIAS, newtab: false },
+        { text: "Instruments Home", url: urls.INSTRUMENTS_HOME, newtab: true},
+        { text: "Staff Astronomers", url: urls.STAFF_ASTRONOMERS, newtab: true },
+        { text: "Instrument Status (SIAS)", url: urls.SIAS, newtab: true },
         { text: "KPF-CC Dashboard", url: urls.KPF_CC_DASHBOARD, newtab: true},
         ]
     },
     { text: "Post-Observing Support", icon: <AssignmentIcon />,
       subItems: [
-        { text: "Post Observing Comment Form", url: urls.POST_OBS_COMMENTS, newtab: false},
-        { text: "Data Reduction Pipelines", url: urls.DRPS, newtab: false},
+        { text: "Post Observing Comment Form", url: urls.POST_OBS_COMMENTS, newtab: true},
+        { text: "Data Reduction Pipelines", url: urls.DRPS, newtab: true},
       ]
     },
     { text: "Data Access", icon: <CloudDownloadIcon />,
@@ -241,7 +241,7 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
         { text : "Keck Cloud Cameras", url : urls.CLOUD_CAMS, newtab: false}
       ]
     },
-    { text: "Publication Ackowledgement", icon:   <CreateIcon /> , url: urls.PUB_ACK, newtab: false}
+    { text: "Publication Ackowledgement", icon:   <CreateIcon /> , url: urls.PUB_ACK, newtab: true}
     ];
 
  /**
