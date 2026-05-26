@@ -409,8 +409,10 @@ export function useObsLogApi(obsid: number, semester: string, currentSemester: s
       }
     }
 
-    if (semester && currentSemester) { // Make sure we have currentSemester
+    if (semester && currentSemester) { 
       fetchLogs();
+    } else {
+      setLoading(false);
     }
   }, [obsid, semester, currentSemester]);
 
