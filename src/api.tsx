@@ -409,11 +409,12 @@ export function useObsLogApi(obsid: number, semester: string, currentSemester: s
       }
     }
 
-    if (semester && currentSemester) { 
+    if (semester && currentSemester) {
       fetchLogs();
-    } else {
+    } else if (!semester) {
       setLoading(false);
     }
+    // If semester is set but currentSemester hasn't loaded yet, keep loading=true
   }, [obsid, semester, currentSemester]);
 
   return { data, loading };

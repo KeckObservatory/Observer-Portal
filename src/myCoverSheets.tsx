@@ -208,7 +208,7 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                     )
                   }
                 >
-                  2026A Instrument Avalibility and Announcements
+                  Instrument Availability and Announcements
                 </Link>
               </ListItem>
               <ListItem>

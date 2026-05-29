@@ -8,7 +8,7 @@ import { CircularProgress, Link } from "@mui/material";
 import { useState} from "react";
 import { useEffect } from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { getCurrentSemester } from "./api";
+import { getCurrentSemester, getNewestSemester } from "./api";
 import type { userInfoApiResponse } from './api';
 import { getLastSemesters } from "./api";
 import { Main } from './theme';
@@ -27,15 +27,24 @@ export function MyObsLogs({ open, user }: MyLogsProps) {
   const obsid = user?.Id
   //const obsid = 1521
   const currentSemester = getCurrentSemester();
-  const availableSemesters = ["All Logs", currentSemester, ...getLastSemesters(currentSemester, 15)]; 
-
-  const [semester, setSemester] = useState(currentSemester);
+  const [newestSemester, setNewestSemester] = useState<string>("");
 
   useEffect(() => {
-    if (currentSemester) {
-      setSemester(currentSemester);
+    async function fetchNewest() {
+      const sem = await getNewestSemester();
+      setNewestSemester(sem);
     }
-  }, [currentSemester]);
+    fetchNewest();
+  }, []);
+
+  const baseSemesters = currentSemester ? [currentSemester, ...getLastSemesters(currentSemester, 15)] : [];
+  const availableSemesters = [
+    "All Logs",
+    ...(newestSemester && !baseSemesters.includes(newestSemester) ? [newestSemester] : []),
+    ...baseSemesters,
+  ];
+
+  const [semester, setSemester] = useState("All Logs");
 
   // Pass currentSemester to the hook
   const { data, loading } = useObsLogApi(obsid, semester, currentSemester); 
