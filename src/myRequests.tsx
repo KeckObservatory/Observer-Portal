@@ -138,7 +138,7 @@ export function MyRequests({ open, user }: MyRequestsProps) {
                           <TableCell>
                             { (
                               <Link
-                                href={`${urls.REQUEST_EDIT}ReqNo=${row.Id}`}
+                                href={`${urls.REQUEST_EDIT}ReqNo=${row.ReqNo}`}
                                 target="_blank"
                                 rel="noopener"
                                 underline="hover"
