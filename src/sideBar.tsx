@@ -160,6 +160,8 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
 
     { text: "My Profile", icon: <AccountBoxIcon />, url: urls.UPDATE_MY_PROFILE, newtab: true },
 
+    { text: "Telescope Schedule", icon: <CalendarMonthIcon />, url: urls.TELESCOPE_SCHEDULE, newtab: true },
+
     { text: "My Observing Schedule", icon: <CalendarMonthIcon /> },
 
     { text: "Proposal Preparation", icon: <ChecklistIcon />,
