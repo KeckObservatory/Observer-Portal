@@ -170,13 +170,17 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
         { text: "Submit a Cover Sheet", url: urls.COVER_SHEET_SUBMISSION, newtab: true},
         { text: "KPF-CC OB Submission", url : urls.KPF_CC_OBS_BLOCK_SUBMISSION, newtab: true},
         { text: "KPF-CC Program Dashboard", url: urls.KPF_CC_DASHBOARD, newtab: true},
+        { text: "Observing Information", url: urls.OBSERVING_INFORMATION, newtab: true},
       ]
     },
 
     { text: "Observing Run Preparation", icon: <ChecklistIcon />,
       subItems: [
+        { text: "Instruments Home", url: urls.INSTRUMENTS_HOME, newtab: true},
+        { text: "Staff Astronomers", url: urls.STAFF_ASTRONOMERS, newtab: true },
         { text: "My Observing Requests"},
-        { text: "Submit anObserving Request", url: urls.OBSERVING_REQUEST, newtab: true},
+        { text: "Submit an Observing Request", url: urls.OBSERVING_REQUEST, newtab: true},
+        { text: "VSQ Reservations", url: urls.VSQ_RESERVATIONS, newtab: true },
         { text: "SSH Key Management", url: urls.SSH_KEY_MANAGEMENT, newtab: true },
         { text: "Remote Observing Software", url: urls.REMOTE_OBS_SOFTWARE, newtab: true},
         { text: "DEIMOS/LRIS Configuration Submission", url: urls.CONFIGURATION_SUBMISSION, newtab: true},
@@ -204,6 +208,8 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
         { text: "ODAP", url: urls.ODAP, newtab: true},
         { text: "Grant Data Access", url: urls.GRANT_DATA_ACCESS, newtab: true},
         { text: "My Observing Logs"},
+        { text: "Data Reduction Pipelines", url: urls.DRPS, newtab: true},
+        { text: "Publication Ackowledgement", url: urls.PUB_ACK, newtab: true},
       ]
     },
 
