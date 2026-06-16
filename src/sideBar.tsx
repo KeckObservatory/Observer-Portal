@@ -190,7 +190,7 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
         { text: "Starlist Format", url: urls.NON_AO_STARLIST, newtab: true},
         { text: "AO Starlist Format", url: urls.AO_STARLIST, newtab: true },
         { text: "MKWC", url : urls.MK_WEATHER_CENTER, newtab: true},
-        { text: "Cloud Cameras", url : urls.CLOUD_CAMS, newtab: false}
+        { text: "Cloud Cameras", url : urls.CLOUD_CAMS, newtab: false},
         { text: "Post Observing Comment (POC) Form", url: urls.POST_OBS_COMMENTS, newtab: true},
       ]
     },
@@ -200,7 +200,7 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
         { text: "KOA", url: urls.KOA, newtab: true},
         { text: "DDS", url: urls.DDS, newtab: true },
         { text: "ODAP", url: urls.ODAP, newtab: true},
-        { text: "Grant Data Access", url: urls.GRANT_DATA_ACCESS, newtab: true}
+        { text: "Grant Data Access", url: urls.GRANT_DATA_ACCESS, newtab: true},
         { text: "My Observing Logs"},
       ]
     }
