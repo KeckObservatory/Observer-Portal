@@ -28,7 +28,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 //import CreateIcon from '@mui/icons-material/Create';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-//import StarsIcon from '@mui/icons-material/Stars';
+import StarsIcon from '@mui/icons-material/Stars';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 // urls
@@ -203,7 +203,16 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
         { text: "Grant Data Access", url: urls.GRANT_DATA_ACCESS, newtab: true},
         { text: "My Observing Logs"},
       ]
+    },
+
+    { text: "ToO Resources", icon: <StarsIcon />,
+      subItems: [
+            { text: "ToO Policies", url: urls.ToO_POLICIES, newtab: true },
+            { text: "ToO Request Tool", url: urls.ToO_REQUEST_TOOL, newtab: true },
+            { text: "ToO Jupyter Notebook", url: urls.ToO_NOTEBOOK, newtab: true },
+          ]
     }
+
     ];
 
  /**
