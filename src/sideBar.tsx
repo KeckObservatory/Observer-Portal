@@ -20,13 +20,13 @@ import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
 import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+//import AssignmentIcon from '@mui/icons-material/Assignment';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
+//import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ChecklistIcon from '@mui/icons-material/Checklist';
-import CreateIcon from '@mui/icons-material/Create';
+//import CreateIcon from '@mui/icons-material/Create';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import StarsIcon from '@mui/icons-material/Stars';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -158,18 +158,60 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
 
     { text: "Previous Observer Homepage", icon: <ArrowBackIcon />, url: urls.OLD_HOMEPAGE, newtab: true },
 
-    { text: "Profile", icon: <AccountBoxIcon />,
+    { text: "My Profile", icon: <AccountBoxIcon />, url: urls.UPDATE_MY_PROFILE, newtab: true },
+
+    { text: "Telescope Schedule", icon: <CalendarMonthIcon />, url: urls.TELESCOPE_SCHEDULE, newtab: true },
+
+    { text: "My Observing Schedule", icon: <CalendarMonthIcon /> },
+
+    { text: "Proposal Preparation", icon: <ChecklistIcon />,
       subItems: [
-        { text: "Update My Profile", url: urls.UPDATE_MY_PROFILE, newtab: true },
-        { text: "SSH Key Management", url: urls.SSH_KEY_MANAGEMENT, newtab: true },
-        { text: "My Observing Schedule"},
-        { text: "My Observing Logs"},
-        { text: "My Observing Requests"},
         { text: "My Cover Sheets"},
+        { text: "Submit a Cover Sheet", url: urls.COVER_SHEET_SUBMISSION, newtab: true},
+        { text: "KPF-CC OB Submission", url : urls.KPF_CC_OBS_BLOCK_SUBMISSION, newtab: true},
+        { text: "KPF-CC Program Dashboard", url: urls.KPF_CC_DASHBOARD, newtab: true},
+        { text: "Observing Information", url: urls.OBSERVING_INFORMATION, newtab: true},
       ]
     },
 
-    { text: "Telescope Schedule", icon: <CalendarMonthIcon />, url: urls.TELESCOPE_SCHEDULE, newtab: true },
+    { text: "Observing Run Preparation", icon: <ChecklistIcon />,
+      subItems: [
+        { text: "Instruments Home", url: urls.INSTRUMENTS_HOME, newtab: true},
+        { text: "Staff Astronomers", url: urls.STAFF_ASTRONOMERS, newtab: true },
+        { text: "My Observing Requests"},
+        { text: "Submit an Observing Request", url: urls.OBSERVING_REQUEST, newtab: true},
+        { text: "VSQ Reservations", url: urls.VSQ_RESERVATIONS, newtab: true },
+        { text: "SSH Key Management", url: urls.SSH_KEY_MANAGEMENT, newtab: true },
+        { text: "Remote Observing Software", url: urls.REMOTE_OBS_SOFTWARE, newtab: true},
+        { text: "DEIMOS/LRIS Configuration Submission", url: urls.CONFIGURATION_SUBMISSION, newtab: true},
+        { text: "Slitmask Submission", url: urls.SLITMASK_SUBMISSION , newtab: true },
+      ]
+    },
+
+    { text: "Observing", icon: <FolderSpecialIcon />,
+      subItems: [
+        { text: "Instrument Status (SIAS)", url: urls.SIAS, newtab: true },
+        { text: "Target Planning Tool", url: urls.PLANNING_TOOL, newtab: true },
+        { text: "Starlist Tool", url: urls.TARGET_LIST_MANAGEMENT, newtab: true},
+        { text: "Starlist Format", url: urls.NON_AO_STARLIST, newtab: true},
+        { text: "AO Starlist Format", url: urls.AO_STARLIST, newtab: true },
+        { text: "MKWC", url : urls.MK_WEATHER_CENTER, newtab: true},
+        { text: "Cloud Cameras", url : urls.CLOUD_CAMS, newtab: false},
+        { text: "Post Observing Comment (POC) Form", url: urls.POST_OBS_COMMENTS, newtab: true},
+      ]
+    },
+
+    { text: "Data and Logs", icon: <CloudDownloadIcon />,
+      subItems: [
+        { text: "KOA", url: urls.KOA, newtab: true},
+        { text: "DDS", url: urls.DDS, newtab: true },
+        { text: "ODAP", url: urls.ODAP, newtab: true},
+        { text: "Grant Data Access", url: urls.GRANT_DATA_ACCESS, newtab: true},
+        { text: "My Observing Logs"},
+        { text: "Data Reduction Pipelines", url: urls.DRPS, newtab: true},
+        { text: "Publication Ackowledgement", url: urls.PUB_ACK, newtab: true},
+      ]
+    },
 
     { text: "ToO Resources", icon: <StarsIcon />,
       subItems: [
@@ -177,71 +219,8 @@ export function PersistentSideBar({ open, handleDrawerClose, setSelectedPage, se
             { text: "ToO Request Tool", url: urls.ToO_REQUEST_TOOL, newtab: true },
             { text: "ToO Jupyter Notebook", url: urls.ToO_NOTEBOOK, newtab: true },
           ]
-    },
+    }
 
-    { text: "Pre-Observing Support", icon: <ChecklistIcon />,
-      subItems: [
-        { text: "Instrument Home", url: urls.INSTRUMENTS_HOME, newtab: true},
-        { text: "Applying for Keck Time", 
-          subItems: [
-            { text: "Observing Information", url: urls.OBSERVING_INFORMATION, newtab: true},
-            { text: "Coversheet Submission", url: urls.COVER_SHEET_SUBMISSION, newtab: true},
-            { text: "KPF-CC Observing Block Submission", url : urls.KPF_CC_OBS_BLOCK_SUBMISSION, newtab: true},
-          ]
-        },
-        { text: "DEIMOS/LRIS Support", 
-          subItems: [
-            { text: "Configuration Submission", url: urls.CONFIGURATION_SUBMISSION, newtab: true},
-            { text: "Slitmask Submission", url: urls.SLITMASK_SUBMISSION , newtab: true },
-          ]
-        },
-        { text: "Target Planning/Submission",
-          subItems: [
-            { text: "Planning Tool", url: urls.PLANNING_TOOL, newtab: true },
-            { text: "Starlist List Management/Upload", url: urls.TARGET_LIST_MANAGEMENT, newtab: true},
-            { text: "Starlist Formatting", url: urls.NON_AO_STARLIST, newtab: true},
-            { text: "AO Starlist Formatting", url: urls.AO_STARLIST, newtab: true },
-          ]
-        },
-        
-        { text: "HQ and Remote Observing",
-          subItems: [
-            { text: "Observing Request", url: urls.OBSERVING_REQUEST, newtab: true},
-            { text: "VSQ Reservations", url: urls.VSQ_RESERVATIONS, newtab: true },
-          ]
-        },
-        { text: "Remote Observing Software", url: urls.REMOTE_OBS_SOFTWARE, newtab: true},
-      ]
-    },
-    { text: "Observing Support", icon: <FolderSpecialIcon />,
-      subItems: [
-        { text: "Instruments Home", url: urls.INSTRUMENTS_HOME, newtab: true},
-        { text: "Staff Astronomers", url: urls.STAFF_ASTRONOMERS, newtab: true },
-        { text: "Instrument Status (SIAS)", url: urls.SIAS, newtab: true },
-        { text: "KPF-CC Dashboard", url: urls.KPF_CC_DASHBOARD, newtab: true},
-        ]
-    },
-    { text: "Post-Observing Support", icon: <AssignmentIcon />,
-      subItems: [
-        { text: "Post Observing Comment Form", url: urls.POST_OBS_COMMENTS, newtab: true},
-        { text: "Data Reduction Pipelines", url: urls.DRPS, newtab: true},
-      ]
-    },
-    { text: "Data Access", icon: <CloudDownloadIcon />,
-      subItems: [
-        { text: "Keck Observatory Archive", url: urls.KOA, newtab: true},
-        { text: "Data Discovery Service", url: urls.DDS, newtab: true },
-        { text: "Observers\' Data Access Portal", url: urls.ODAP, newtab: true},
-        { text: "Grant Data Access", url: urls.GRANT_DATA_ACCESS, newtab: true}
-      ]
-    },
-    { text: "Weather Conditions", icon: <AcUnitIcon />, 
-      subItems: [
-        { text: "Maunakea Weather Center", url : urls.MK_WEATHER_CENTER, newtab: true},
-        { text : "Keck Cloud Cameras", url : urls.CLOUD_CAMS, newtab: false}
-      ]
-    },
-    { text: "Publication Ackowledgement", icon:   <CreateIcon /> , url: urls.PUB_ACK, newtab: true}
     ];
 
  /**
