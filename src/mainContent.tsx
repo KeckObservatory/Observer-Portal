@@ -214,8 +214,8 @@ export default function MainContent({ open, user, setSelectedPage, setSelectedUr
 
       {/* Night metrics strip */}
       <Box sx={{ height: 24 }} /> 
-      {metricsData?.[0] ? (
-        <OrderedNightMetricsStrip data={metricsData[0]} />
+      {metricsData ? (
+        <OrderedNightMetricsStrip data={metricsData} />
       ) : (
         <div>Loading metrics...</div>
       )}
