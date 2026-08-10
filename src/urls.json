@@ -96,7 +96,7 @@
   "PROPOSALS_API" : "/api/proposals",
   "SCHEDULE_API" : "/api/schedule",
   "EMPLOYEE_API" : "/api/employee",
-  "METRICS_API" : "/api/metrics/?",
+  "METRICS_API" : "/api/schedule/getTwilightData?",
   "USER_INFO_API" : "/userinfo/user-cookies",
 
   "OBSERVING_API" : "/api/observing",
