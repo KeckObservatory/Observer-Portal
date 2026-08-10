@@ -95,22 +95,17 @@ export interface metricsApiResponse {
  * Fetches time metrics for the current shifted date.
  */
 export function metricsApi() {
-  const [data, setData] = useState<metricsApiResponse[] | null>(null);
+  const [data, setData] = useState<metricsApiResponse | null>(null);
 
 useEffect(() => {
     const fetchData = async () => {
-      try {
         // Get current date with shift
         const {utcDate} = getShiftedDates();
 
         // Fetch metrics list
-        const timeList = await fetch(urls.METRICS_API + `date=${utcDate}&column=COLUMN&output=OUTPUT`);
-        const timeMetrics: metricsApiResponse[] = await timeList.json();
-
-      setData(timeMetrics);
-    } catch (err) {
-      //console.error("Error fetching time metrics:", err);
-    }
+        const timeList = await fetch(urls.METRICS_API + `date=${utcDate}`);
+        const timeMetrics: metricsApiResponse = await timeList.json();
+        setData(timeMetrics);
   };
   fetchData();
 }, []);
