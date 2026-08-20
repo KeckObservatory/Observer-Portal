@@ -439,6 +439,27 @@ export function getCurrentSemester() {
 
 
 /**
+ * Gets next semester for a given semester 
+ */
+export function getNextSemester(semester: string): string {
+  const match = semester.match(/(\d{4})([AB])/);
+  if (!match) return ""
+
+  let year = parseInt(match[1]);
+  let term = match[2];
+  let nextTerm: string;
+
+    if (term === "A") {
+      nextTerm = "B";
+    } else {
+      nextTerm = "A";
+      year++;
+    }
+  return `${year}${nextTerm}`
+}
+
+
+/**
  * Fetches employee links for a given observer.
  */
 export async function getEmployeeLinks(obsid: number): Promise<{ links?: { name: string; url: string }[] }> {
@@ -528,7 +549,9 @@ export interface CoverSheetsApiResponse {
 
 /**
  * Fetches cover sheets for a given observer and semester.
- * If semester is "All Coversheets", fetches from multiple semesters.
+ * getAllProposals returns every proposal for the obsid in one call, so it is
+ * fetched once and filtered client side. "All Coversheets" keeps every semester
+ * offered in the dropdown; anything else keeps just the selected one.
  */
 export function useCoverSheetsApi(obsid: number, semester: string, currentSemester: string) {
   const [data, setData] = useState<CoverSheetsApiResponse | null>(null);
@@ -538,93 +561,53 @@ export function useCoverSheetsApi(obsid: number, semester: string, currentSemest
     async function fetchCoverSheets() {
       setLoading(true);
       try {
-        if (semester === "All Coversheets") {
-          // Fetch from multiple semesters like logs
-          const semesters = [currentSemester, ...getLastSemesters(currentSemester, 15)];
-          
-          const allCoversheetsPromises = semesters.map(async (sem) => {
+        const response = await fetch(
+          `${urls.PROPOSALS_API}/getAllProposals?obsid=${obsid}&type=coversheet`
+        );
+        const json = await response.json();
+
+        const semesters = semester === "All Coversheets"
+          ? new Set([
+              getNextSemester(currentSemester),
+              currentSemester,
+              ...getLastSemesters(currentSemester, 15),
+            ])
+          : new Set([semester]);
+
+        // Filter by semester
+        const programs = (json.programs || []).filter((p: CoverSheetProgram) =>
+          p.semid && semesters.has(p.semid.split('_')[0])
+        );
+
+        // Enrich with title/type
+        const enrichedPrograms = await Promise.all(
+          programs.map(async (program: CoverSheetProgram) => {
             try {
-              const response = await fetch(
-                `${urls.PROPOSALS_API}/getAllProposals?obsid=${obsid}&type=coversheet`
-              );
-              const json = await response.json();
-              
-              // Filter by semester and add with title/type
-              const semesterPrograms = (json.programs || []).filter((p: CoverSheetProgram) =>
-                p.semid && p.semid.includes(sem)
-              );
-
-              // add with title/type info
-              const enrichedPrograms = await Promise.all(
-                semesterPrograms.map(async (program: CoverSheetProgram) => {
-                  try {
-                    const coverResponse = await fetch(`${urls.PROPOSALS_API}/getCoverSheetInfo?semid=${program.semid}`);
-                    const coverData = await coverResponse.json();
-                    if (coverData.success === "SUCCESS" && coverData.result) {
-                      return {
-                        ...program,
-                        title: coverData.result.title,
-                        type: coverData.result.type
-                      };
-                    }
-                  } catch (err) {
-                  }
-                  return program;
-                })
-              );
-
-              return enrichedPrograms;
-            } catch (err) {
-              return [];
-            }
-          });
-
-          const allCoversheetsArrays = await Promise.all(allCoversheetsPromises);
-          const allCoversheets = allCoversheetsArrays.flat();
-          
-          // Sort by semester (newest first)
-          allCoversheets.sort((a, b) => {
-            if (a.semid && b.semid) {
-              return b.semid.localeCompare(a.semid);
-            }
-            return 0;
-          });
-          
-          setData({ programs: allCoversheets });
-        } else {
-          // Fetch for specific semester
-          const response = await fetch(
-            `${urls.PROPOSALS_API}/getAllProposals?obsid=${obsid}&type=coversheet`
-          );
-          const json = await response.json();
-          
-          // Filter by selected semester
-          const programs = (json.programs || []).filter((p: CoverSheetProgram) =>
-            p.semid && p.semid.includes(semester)
-          );
-
-          // Enrich with title/type
-          const enrichedPrograms = await Promise.all(
-            programs.map(async (program: CoverSheetProgram) => {
-              try {
-                const coverResponse = await fetch(`${urls.PROPOSALS_API}/getCoverSheetInfo?semid=${program.semid}`);
-                const coverData = await coverResponse.json();
-                if (coverData.success === "SUCCESS" && coverData.result) {
-                  return {
-                    ...program,
-                    title: coverData.result.title,
-                    type: coverData.result.type
-                  };
-                }
-              } catch (err) {
-                // Silent fail
+              const coverResponse = await fetch(`${urls.PROPOSALS_API}/getCoverSheetInfo?semid=${program.semid}`);
+              const coverData = await coverResponse.json();
+              if (coverData.success === "SUCCESS" && coverData.result) {
+                return {
+                  ...program,
+                  title: coverData.result.title,
+                  type: coverData.result.type
+                };
               }
-              return program;
-            })
-          );
+            } catch (err) {
+              // Silent fail
+            }
+            return program;
+          })
+        );
 
-          setData({ programs: enrichedPrograms });
-        }
+        // Sort by semester (newest first)
+        enrichedPrograms.sort((a: CoverSheetProgram, b: CoverSheetProgram) => {
+          if (a.semid && b.semid) {
+            return b.semid.localeCompare(a.semid);
+          }
+          return 0;
+        });
+
+        setData({ programs: enrichedPrograms });
       } catch (err) {
         setData({ programs: [] });
       } finally {
