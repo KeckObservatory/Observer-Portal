@@ -2,7 +2,7 @@ import { Paper, Typography, Stack, Box, Table, TableBody, TableCell, TableContai
 import urls from './urls.json';
 import type { userInfoApiResponse } from './api';
 import { useEffect, useState } from "react";
-import { getCurrentSemester, getLastSemesters, getNewestSemester, useCoverSheetsApi } from "./api";
+import { getNextSemester, getCurrentSemester, getLastSemesters, getNewestSemester, useCoverSheetsApi } from "./api";
 import { Main } from './theme';
 import { getEmployeeLinks } from "./api"; // Make sure this is imported
 import { handleUrlClick } from './urlLogic';
@@ -21,7 +21,8 @@ interface MyCoverSheetsProps  {
 export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: MyCoverSheetsProps) {
   const obsid = user?.Id;
   const currentSemester = getCurrentSemester();
-  const availableSemesters = ["All Coversheets", currentSemester, ...getLastSemesters(currentSemester, 15)];
+  const nextSemester = getNextSemester(currentSemester)
+  const availableSemesters = ["All Coversheets", nextSemester, currentSemester, ...getLastSemesters(currentSemester, 15)];
 
   // Semester selection state
   const [selectedSemester, setSelectedSemester] = useState(currentSemester);
@@ -208,7 +209,7 @@ export function MyCoverSheets({ open, user, setSelectedPage, setSelectedUrl }: M
                     )
                   }
                 >
-                  2026A Instrument Avalibility and Announcements
+                  Instrument Avalibility and Announcements
                 </Link>
               </ListItem>
               <ListItem>
