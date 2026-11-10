@@ -10,15 +10,15 @@
   "UPDATE_INFO_SRC": "updateInfo.php",
   "SSH_SRC": "sshKeyMgr.php",
   "TARGET_LIST_SRC": "https://www2.keck.hawaii.edu/software/findChartV2/listMgmt.php",
-  "LRIS_CONFIG_SRC": "https://www2.keck.hawaii.edu/inst/siastng/release/web/ObsConf/welcomeScreenEh.php",
-  "DEIMOS_CONFIG_SRC": "https://www2.keck.hawaii.edu/inst/siastng/release/web/ObsConf/welcomeScreenEh.php",
+  "LRIS_CONFIG_SRC": "/observers/observing-configuration-request/rel/index.html",
+  "DEIMOS_CONFIG_SRC": "/observers/observing-configuration-request/rel/index.html",
   "PROPOSAL_APPLY_SRC": "https://www2.keck.hawaii.edu/observing/apply.html",
   "SIAS_SRC": "https://www2.keck.hawaii.edu/realpublic/inst/siastng/release/web/Sias/siasEh.php?host=mysqlserver&table=datebook&display=compact",
   "KOA_SRC": "https://koa.ipac.caltech.edu/cgi-bin/KOA/nph-KOAlogin",
-  "TELSCHED_SRC": "https://www2.keck.hawaii.edu/observing/keckSchedule/keckSchedule.php",
+  "TELSCHED_SRC": "/keck-schedule/rel/index.html",
   "INST_SRC": "https://www2.keck.hawaii.edu/inst/index.php",
   "MKWC_SRC": "http://mkwc.ifa.hawaii.edu/",
-  "VSQ_SRC": "https://www2.keck.hawaii.edu/inst/common/VSQ.html",
+  "VSQ_SRC": "/observers/vsq-app/rel/index.html",
   "APPLY_SRC": "https://www2.keck.hawaii.edu/observing/apply.html",
   "LOCAL_HOST": "/",
   "TELSCHED_API": "/api/telSchedule?",
@@ -36,11 +36,11 @@
   "KPUB": "/public/kpub/rel/index.html",
 
 
-  "UPDATE_MY_PROFILE" : "https://www2.keck.hawaii.edu/inst/PILogin/updateInfo.php",
-  "SSH_KEY_MANAGEMENT" : "https://www2.keck.hawaii.edu/inst/PILogin/sshKeyMgr.php",
+  "UPDATE_MY_PROFILE" : "/observers/update-observer-info/rel/index.html",
+  "SSH_KEY_MANAGEMENT" : "/observers/ssh-key-mgr/rel/index.html",
   "MY_COVER_SHEETS" : "",
 
-  "TELESCOPE_SCHEDULE" : "https://www2.keck.hawaii.edu/observing/keckSchedule/keckSchedule.php",
+  "TELESCOPE_SCHEDULE" : "/keck-schedule/rel/index.html",
 
   "MK_WEATHER_CENTER": "http://mkwc.ifa.hawaii.edu/",
 
@@ -58,7 +58,7 @@
   "TARGET_LIST_MANAGEMENT" : "https://www2.keck.hawaii.edu/software/findChartV2/listMgmt.php",
   "PLANNING_TOOL" : "/observers/planning-tool/rel/index.html",
 
-  "OBSERVING_REQUEST" : "https://www2.keck.hawaii.edu/inst/PILogin/mainlandObs.php",
+  "OBSERVING_REQUEST" : "/observers/observing-request/rel/index.html",
   "VSQ_RESERVATIONS" : "https://www2.keck.hawaii.edu/inst/common/VSQ.html",
 
   "REMOTE_OBS_SOFTWARE" : "https://github.com/KeckObservatory/RemoteObserving",
@@ -68,7 +68,7 @@
   "SIAS" : "https://www2.keck.hawaii.edu/realpublic/inst/siastng/release/web/Sias/siasEh.php?host=mysqlserver&table=datebook&display=compact",
   "KPF_CC_DASHBOARD" : "/kpfccapp",
 
-  "POST_OBS_COMMENTS" : "https://www2.keck.hawaii.edu/inst/PILogin/pocSubmit.php",
+  "POST_OBS_COMMENTS" : "/observers/submit-poc/rel/index.html",
   "DRPS" : "https://www2.keck.hawaii.edu/inst/drp.html",
 
   "KOA": "https://koa.ipac.caltech.edu/cgi-bin/KOA/nph-KOAlogin",
