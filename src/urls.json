@@ -91,7 +91,7 @@
   "SUB_ENG_REQ" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?access=edit&semester=",
 
   "SEMESTER_INFO" : "https://www2.keck.hawaii.edu/observing/instavail.html",
-  "REQUEST_EDIT" : "https://www2.keck.hawaii.edu/inst/PILogin/mainlandObs.php?",
+  "REQUEST_EDIT" : "/observers/observing-request/rel/index.html?",
 
   "PROPOSALS_API" : "/api/proposals",
   "SCHEDULE_API" : "/api/schedule",
