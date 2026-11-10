@@ -48,7 +48,7 @@
   "COVER_SHEET_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/PILogin/coversheet.php?access=new",
   "KPF_CC_OBS_BLOCK_SUBMISSION" : "/observers/kpf-cc/rel/index.html",
 
-  "CONFIGURATION_SUBMISSION" : "https://www2.keck.hawaii.edu/inst/siastng/release/web/ObsConf/welcomeScreenEh.php",
+  "CONFIGURATION_SUBMISSION" : "/observers/observing-configuration-request/rel/index.html",
   "SLITMASK_SUBMISSION" : "/observers/Slitmask/rel/index.html",
 
   "ToO_POLICIES" : "https://www2.keck.hawaii.edu/inst/common/too_policies.html",
